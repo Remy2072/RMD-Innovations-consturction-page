@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
+:root {
+    --gutter-min: 1rem;
+    --gutter-max: 3rem;
+
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+    --container-2xl: 1536px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +33,7 @@ body {
 }
 
 header img {
-    width: 80px;
+    width: 5rem;
     height: auto;
 }
 
@@ -35,97 +46,11 @@ a {
     color: black;
 }
 
-.header {
-    padding-top: 50px;
-}
-
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cta {
-    font-weight: 600;
-}
-
-.main-inner {
-    display: grid;
-    place-items: center;
-    min-height: 100%;
-}
-
-.main-inner img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin-inline: auto;
-}
-
-.main-inner p {
-    padding: 14px 20px;
-    background-color: rgba(255, 255, 255, 0.02);
-    border-radius: 20px;
-    color: #2d2d2d;
-    font-weight: 600;
-    border: 0.5px solid transparent;
-    border-radius: 20px;
-    max-width: 530px;
-    background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.05) 0%,
-            rgba(255, 255, 255, 0.05) 100%
-        )
-        border-box;
-    /* backdrop blur */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    /* inner shadows via box-shadow inset */
-    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2),
-        /* zwart, 20% */ inset 0 2px 4px rgba(255, 255, 255, 0.4); /* wit, 40% */
-
-    -webkit-background-clip: padding-box, border-box;
-    background-clip: padding-box, border-box;
-}
-
-.main-inner a {
-    color: rgb(179, 47, 255);
-}
-
-.emoji {
-    display: none;
-}
-
-/* vanaf tablet (bijv. min-width: 768px): tonen */
-@media (min-width: 768px) {
-    .emoji {
-        display: inline;
-    }
-}
-/* ── Tuning-knoppen ─────────────────────────────────────────── */
-:root {
-    /* gutters (links/rechts) – min/max */
-    --gutter-min: 1rem; /* 16px op mobiel */
-    --gutter-max: 3rem; /* 48px op desktop */
-
-    /* container breedtes per breakpoint (Tailwind-achtig) */
-    --container-sm: 640px;
-    --container-md: 768px;
-    --container-lg: 1024px;
-    --container-xl: 1280px;
-    --container-2xl: 1536px; /* optioneel, voor ultrawide */
-}
-
-/* ── Container ──────────────────────────────────────────────── */
 .container {
     width: 100%;
     margin-inline: auto;
-    /* Fluid gutters: min 16px, max 48px, ertussen schaal je met viewport */
     padding-inline: clamp(var(--gutter-min), 5vw, var(--gutter-max));
 }
-
-/* ── Breakpoints: cap de max-widths netjes op vaste stappen ─── */
 @media (min-width: 640px) {
     .container {
         max-width: var(--container-sm);
@@ -156,13 +81,66 @@ a {
     }
 }
 
-/* ── Handige varianten (optioneel) ──────────────────────────── */
-/* Iets smallere leeskolom (bv. voor lange tekst) */
-.container--narrow {
-    max-width: 70ch; /* overschrijft de cap; voelt fijn voor body copy */
+.header {
+    padding-top: 3.125rem;
 }
 
-/* Volbreed secties zonder cap, maar mét veilige gutters */
-.container--fluid {
-    max-width: none;
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta {
+    font-weight: 600;
+}
+
+.main-inner {
+    display: grid;
+    place-items: center;
+    min-height: 100%;
+}
+
+.main-inner img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+}
+
+.main-inner p {
+    padding: 14px 1.25rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 1.25rem;
+    color: #2d2d2d;
+    font-weight: 600;
+    border: 0.5px solid transparent;
+    border-radius: 1.25rem;
+    max-width: 530px;
+    background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(255, 255, 255, 0.05) 100%
+        )
+        border-box;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4);
+    -webkit-background-clip: padding-box, border-box;
+    background-clip: padding-box, border-box;
+}
+
+.main-inner a {
+    color: rgb(179, 47, 255);
+}
+
+.emoji {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .emoji {
+        display: inline;
+    }
 }
